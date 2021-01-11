@@ -7,10 +7,11 @@ ShowPyramid.onclick = function(){
 
 function Pyramid() {
   var output = '';
+  /*document.getElementById("Pyramid", "20");*/
   var Rows = prompt("Enter a number", "20");
-  for (var i = 1; i <= Rows; i++) {
-      for (var j = 1; j <= i; j++) {
-          output += j + '  ';
+  for (var i=1; i<=Rows; i++){
+      for (var j=1; j<=i; j++){
+          output += j+ '  ';
       }
       document.write(output);
       document.write("<br>");
