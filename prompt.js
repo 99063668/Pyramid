@@ -1,22 +1,33 @@
-var Numbers= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
 var ShowPyramid = document.getElementById("ShowPyramid");
+var LengthInput = document.getElementById("Length");
+var text = document.getElementById("Text");
+var input = parseInt(LengthInput.value);
+
+var Array = [];
+
 ShowPyramid.onclick = function(){
-  Pyramid()
+  Pyramid();
 };
 
+LengthInput.addEventListener("keyup", function(event){
+  if (event.keyCode === 13) {
+    event.preventDefault();
+
+    ShowPyramid.click();
+  }
+});
+
 function Pyramid() {
-  var output = '';
-  /*document.getElementById("Pyramid", "20");*/
-  var Rows = prompt("Enter a number", "20");
-  for (var i=1; i<=Rows; i++){
-      for (var j=1; j<=i; j++){
-          output += j+ '  ';
-      }
-      document.write(output);
-      document.write("<br>");
-      output = '';
+  input = parseInt(LengthInput.value);
+  Array = [];
+  text.innerHTML = '';
+
+  if(isNaN(input)){
+    text.innerHTML = 'U heeft geen nummer ingevuld.';
+  } else {
+    for (var i = 0; i <= input; i++) {
+      Array.push(i);
+      text.innerHTML += Array + "<br>";
+    }
   }
 }
-
-Pyramid();
